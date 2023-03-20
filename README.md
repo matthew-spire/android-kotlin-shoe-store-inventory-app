@@ -1,5 +1,7 @@
 # The Shoe Store
 
+**Note: I used the starter provided by SudKul found [here](https://github.com/udacity/nd940-android-kotlin-course1-starter) and updated as necessary.**
+
 This project will consist of five screens. You do not have to create a shoe store, you can use any other item (e.g., a book store), as long as you create the following screens:
 
 1. Login screen - This screen will be comprised of "Email" and "Password" fields and labels, as well as "Create" and "Login" buttons. Redirects to the Welcome (onboarding) screen.
