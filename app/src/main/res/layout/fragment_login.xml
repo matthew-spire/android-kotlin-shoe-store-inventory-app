@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.udacity.shoestore.fragments.LoginFragment">
 
+    <!-- ConstraintLayout for performance and maintainability. Specifically, the layout can be extended to more complex UI in the future. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginConstraint"
         android:layout_width="match_parent"
@@ -35,7 +36,7 @@
             app:layout_constraintTop_toBottomOf="@+id/emailLabel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/passwordLabel"/>
+            app:layout_constraintBottom_toTopOf="@+id/passwordLabel" />
 
         <TextView
             android:id="@+id/passwordLabel"
@@ -91,7 +92,7 @@
             app:layout_constraintTop_toBottomOf="@+id/loginButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

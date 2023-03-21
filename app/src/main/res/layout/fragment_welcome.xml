@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.udacity.shoestore.fragments.WelcomeFragment">
 
+    <!-- ConstraintLayout for performance and maintainability. Specifically, the layout can be extended to more complex UI in the future. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/welcomeConstraint"
         android:layout_width="match_parent"

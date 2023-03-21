@@ -8,8 +8,11 @@
         <variable
             name="viewModel"
             type="com.udacity.shoestore.viewmodels.ShoeStoreInventoryViewModel" />
+
+        <import type="com.udacity.shoestore.adapters.BindingAdaptersKt" />
     </data>
 
+    <!-- ConstraintLayout for performance and maintainability. Specifically, the layout can be extended to more complex UI in the future. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/shoeDetailConstraint"
         android:layout_width="match_parent"
@@ -36,6 +39,7 @@
             android:layout_marginTop="25dp"
             android:gravity="center_horizontal"
             android:paddingTop="12.5dp"
+            android:text="@={ viewModel.shoeName }"
             android:autofillHints="shoeName"
             android:hint="@string/enter_shoe_name"
             android:textSize="17.5sp"
@@ -56,7 +60,7 @@
             app:layout_constraintTop_toBottomOf="@+id/shoeNameLabel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/shoeCompanyField"
-            app:layout_constraintBottom_toTopOf="@+id/shoeSizeLabel"/>
+            app:layout_constraintBottom_toTopOf="@+id/shoeSizeLabel" />
 
         <EditText
             android:id="@+id/shoeCompanyField"
@@ -64,6 +68,7 @@
             android:layout_height="50dp"
             android:gravity="center_horizontal"
             android:paddingTop="12.5dp"
+            android:text="@={ viewModel.shoeCompany }"
             android:autofillHints="shoeCompany"
             android:hint="@string/enter_shoe_company"
             android:textSize="17.5sp"
@@ -71,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/shoeNameField"
             app:layout_constraintStart_toEndOf="@id/shoeCompanyLabel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/shoeSizeField"/>
+            app:layout_constraintBottom_toTopOf="@+id/shoeSizeField" />
 
         <TextView
             android:id="@+id/shoeSizeLabel"
@@ -92,6 +97,7 @@
             android:layout_height="50dp"
             android:gravity="center_horizontal"
             android:paddingTop="12.5dp"
+            android:text="@={ viewModel.shoeSize }"
             android:autofillHints="shoeSize"
             android:hint="@string/enter_shoe_size"
             android:textSize="17.5sp"
@@ -99,7 +105,7 @@
             app:layout_constraintTop_toBottomOf="@+id/shoeCompanyField"
             app:layout_constraintStart_toEndOf="@+id/shoeSizeLabel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/shoeDescriptionLabel"/>
+            app:layout_constraintBottom_toTopOf="@+id/shoeDescriptionLabel" />
 
         <TextView
             android:id="@+id/shoeDescriptionLabel"
@@ -112,14 +118,16 @@
             app:layout_constraintTop_toBottomOf="@+id/shoeSizeLabel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/shoeDescriptionField"/>
+            app:layout_constraintBottom_toTopOf="@+id/shoeDescriptionField" />
 
+        <!-- Effectively a ScrollView inside an EditText to allow for the input of multiple lines of text for the Shoe Description. -->
         <EditText
             android:id="@+id/shoeDescriptionField"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
             android:gravity="start"
+            android:text="@={ viewModel.shoeDescription }"
             android:autofillHints="shoeDescription"
             android:hint="@string/enter_shoe_description"
             android:textSize="17.5sp"
@@ -156,7 +164,7 @@
             app:layout_constraintTop_toBottomOf="@+id/shoeDescriptionField"
             app:layout_constraintStart_toEndOf="@+id/cancelButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

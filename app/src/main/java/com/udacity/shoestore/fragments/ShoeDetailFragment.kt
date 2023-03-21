@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodels.ShoeStoreInventoryViewModel
 
 class ShoeDetailFragment : Fragment() {
@@ -23,22 +22,13 @@ class ShoeDetailFragment : Fragment() {
             v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
         }
 
+        viewModel.resetShoe()
+
+        binding.viewModel = viewModel
+
         binding.saveButton.setOnClickListener { v: View ->
-            val shoeName = binding.shoeNameField.text.toString()
-            val shoeCompany = binding.shoeCompanyField.text.toString()
-            val shoeSizeInput = binding.shoeSizeField.text.toString()
-            val shoeDescription = binding.shoeDescriptionField.text.toString()
-
-            val shoeFieldsNotEmpty = shoeName.isNotEmpty() && shoeCompany.isNotEmpty() && shoeDescription.isNotEmpty()
-
-            if (shoeFieldsNotEmpty) {
-                try {
-                    val shoeSize = shoeSizeInput.toDouble()
-                    viewModel.addShoe(Shoe(shoeName, shoeSize, shoeCompany, shoeDescription))
-                    v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
-                } catch (e: NumberFormatException) {
-                    Toast.makeText(requireContext(), "Invalid shoe size!", Toast.LENGTH_LONG).show()
-                }
+            if (viewModel.validateAndAddShoe()) {
+                v.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
             } else {
                 Toast.makeText(requireContext(), "One or more fields are empty!", Toast.LENGTH_LONG).show()
             }
